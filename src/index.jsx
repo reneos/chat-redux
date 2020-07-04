@@ -8,9 +8,16 @@ import { createStore, combineReducers } from 'redux';
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
+// initial state
+const initialState = {
+  messages: [],
+  channels: ['general', 'tokyo', 'random'],
+  selectedChannel: 'general',
+  username: prompt("What's your username?")
+};
+
 // State and reducers
 const reducers = combineReducers({
-  changeMe: (state = null, action) => state
 });
 
 // render an instance of the component in the DOM
