@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Message from '../components/message';
 
+import { setMessages } from '../actions';
+
 class MessageList extends Component {
+  componentWillMount() {
+    this.props.setMessages();
+  }
+
   render() {
     const messages = this.props.messages.map((msg, index) => {
       return <Message key={`${msg.username}${index}`} message={msg} />
@@ -14,6 +21,12 @@ class MessageList extends Component {
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { setMessages },
+    dispatch
+  );
+}
 
 function mapStateToProps(state) {
   return {
@@ -21,4 +34,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, null)(MessageList);
+export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
