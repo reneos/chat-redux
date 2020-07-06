@@ -23,4 +23,8 @@ export function createMessage(channel, author, content) {
     },
     body: JSON.stringify(body)
   }).then(response => response.json());
+  return {
+    type: 'CREATE_MESSAGE',
+    payload: promise
+  };
 }
