@@ -22,7 +22,7 @@ class MessageList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.messages.length < this.props.messages || prevProps.selectedChannel !== this.props.selectedChannel) {
+    if (prevProps.messages.length !== this.props.messages.length || prevProps.selectedChannel !== this.props.selectedChannel) {
       clearInterval(this.state.interval);
       this.setState({
         interval: setInterval(this.props.setMessages, 1000, this.props.selectedChannel)
