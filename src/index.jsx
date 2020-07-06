@@ -32,7 +32,7 @@ const messages = [
 
 const initialState = {
   messages,
-  channels: ['general', 'tokyo', 'random'],
+  channels: ['general', 'react', 'paris'],
   selectedChannel: 'general',
   // username: prompt("What's your username?")
   username: "test"

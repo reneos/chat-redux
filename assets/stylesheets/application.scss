@@ -27,8 +27,9 @@ body {
   height: 100%;
 }
 
-.message_list {
+.message_list_container {
   flex: 1;
+  overflow-y: scroll;
 }
 
 .message {

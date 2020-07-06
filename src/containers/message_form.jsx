@@ -10,6 +10,17 @@ class MessageForm extends Component {
     this.state = {
       value: ''
     };
+    this.messageInput = React.createRef();
+  }
+
+  componentDidMount() {
+    this.messageInput.current.focus();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.selectedChannel !== this.props.selectedChannel) {
+      this.messageInput.current.focus();
+    }
   }
 
   handleChange = (event) => {
@@ -29,7 +40,7 @@ class MessageForm extends Component {
 
   render() {
     return (<form className="message_form" onSubmit={this.handleSubmit}>
-      <input onChange={this.handleChange} value={this.state.value} />
+      <input onChange={this.handleChange} value={this.state.value} ref={this.messageInput} />
       <button>Submit</button>
     </form>);
   }
