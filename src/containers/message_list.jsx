@@ -8,7 +8,7 @@ import { setMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount() {
-    this.props.setMessages();
+    this.props.setMessages(this.props.channel);
   }
 
   render() {
