@@ -15,20 +15,24 @@ class MessageList extends Component {
     };
   }
 
-  componentWillMount() {
-    this.setState({
-      interval: setInterval(this.props.setMessages, 1000, this.props.selectedChannel)
-    });
+  componentDidMount() {
+    this.setMessageInterval();
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.messages.length !== this.props.messages.length || prevProps.selectedChannel !== this.props.selectedChannel) {
-      clearInterval(this.state.interval);
-      this.setState({
-        interval: setInterval(this.props.setMessages, 1000, this.props.selectedChannel)
-      });
+      this.setMessageInterval();
       this.messageContainer.current.scrollTop = this.messageContainer.current.scrollHeight;
     }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
+
+  setMessageInterval = () => {
+    clearInterval(this.interval);
+    this.interval = setInterval(this.props.setMessages, 1000, this.props.selectedChannel);
   }
 
   render() {
