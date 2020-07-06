@@ -7,16 +7,24 @@ import Message from '../components/message';
 import { setMessages } from '../actions';
 
 class MessageList extends Component {
-  componentWillMount() {
-    setInterval(this.props.setMessages, 1000, this.props.selectedChannel);
+  constructor(props) {
+    super(props);
+    this.messageContainer = React.createRef();
   }
 
+  componentWillMount() {
+    setInterval(this.props.setMessages, 3000, this.props.selectedChannel);
+  }
+
+  componentDidUpdate() {
+    // this.messageContainer.current.scrollHeight = this.messageContainer.current.scrollTop;
+  }
 
   render() {
     const messages = this.props.messages.map((msg, index) => {
       return <Message key={`${msg.username}${index}`} message={msg} />
     });
-    return (<ul>
+    return (<ul ref={this.messageContainer}>
       {messages}
     </ul>);
   }
