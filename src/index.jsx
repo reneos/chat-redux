@@ -35,7 +35,7 @@ const initialState = {
   channels: ['general', 'tokyo', 'random'],
   selectedChannel: 'general',
   // username: prompt("What's your username?")
-  username: "nicole'"
+  username: "test"
 };
 
 // State and reducers

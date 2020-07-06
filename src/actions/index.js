@@ -11,3 +11,16 @@ export function setMessages(channel) {
       };
     });
 }
+
+export function createMessage(channel, author, content) {
+  const url = `https://wagon-chat.herokuapp.com/${channel}/messages`;
+  const body = { author, content };
+  const promise = fetch(url, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then(response => response.json());
+}

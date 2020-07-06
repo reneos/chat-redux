@@ -8,8 +8,9 @@ import { setMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount() {
-    this.props.setMessages(this.props.channel);
+    setInterval(this.props.setMessages, 1000, this.props.selectedChannel);
   }
+
 
   render() {
     const messages = this.props.messages.map((msg, index) => {
@@ -30,7 +31,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages
+    messages: state.messages,
+    selectedChannel: state.selectedChannel
   };
 }
 
