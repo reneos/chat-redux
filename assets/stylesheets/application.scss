@@ -10,6 +10,10 @@ body {
   width: 40%;
 }
 
+.active {
+  font-weight: bold;
+}
+
 .message_pane {
   width: 60%;
   display: flex;
@@ -36,4 +40,14 @@ body {
 
 .message-content {
   margin-top: .25em;
+}
+
+.message_form {
+  border-top: 1px solid rgba(0,0,0,.1);
+  display: flex;
+  padding: .5em;
+  input {
+    flex: 1;
+    margin-right: .25em;
+  }
 }

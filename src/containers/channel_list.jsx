@@ -4,9 +4,18 @@ import { connect } from 'react-redux';
 
 class ChannelList extends Component {
   render() {
+    const { channels, selectedChannel } = this.props;
+    const channelsMenu = channels.map((channel) => {
+      const classes = channel === selectedChannel ? "active" : "";
+      return (<li className={classes} key={channel}>
+        {channel}
+      </li>);
+    });
     return (
       <div className="channel_pane">
+        <h2>Channels</h2>
         <ul>
+          {channelsMenu}
         </ul>
       </div>
     );
@@ -16,8 +25,8 @@ class ChannelList extends Component {
 function mapStateToProps(state) {
   return {
     channels: state.channels,
-    selctedChannel: state.selectedChannel
-  }
+    selectedChannel: state.selectedChannel
+  };
 }
 
 export default connect(mapStateToProps, null)(ChannelList);
