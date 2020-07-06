@@ -28,3 +28,10 @@ export function createMessage(channel, author, content) {
     payload: promise
   };
 }
+
+export function setChannel(channel) {
+  return {
+    type: 'SET_CHANNEL',
+    payload: channel
+  };
+}
