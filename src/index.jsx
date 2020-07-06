@@ -34,8 +34,7 @@ const initialState = {
   messages,
   channels: ['general', 'react', 'paris'],
   selectedChannel: 'general',
-  // username: prompt("What's your username?")
-  username: "test"
+  username: prompt("What's your username?", 'username')
 };
 
 // State and reducers
