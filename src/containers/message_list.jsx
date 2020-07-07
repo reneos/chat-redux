@@ -15,7 +15,7 @@ class MessageList extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setMessageInterval();
   }
 
